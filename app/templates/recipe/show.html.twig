@@ -1,0 +1,77 @@
+{# {% extends 'base.html.twig' %}
+
+{% block title %}{{ recipe.title }}{% endblock %}
+
+{% block body %}
+<a href="{{ path('index') }}" class="btn btn-secondary mt-4">Retour à la liste des recettes</a>
+    <div class="wrapper d-flex flex-column">
+        <h1 class="text-center">{{ recipe.title }}</h1>
+        <p class="text-center">{{ recipe.recipe }}</p>
+        <h3>Ingredients:</h3>
+        <ul>
+            {% for ingredient in recipe.ingredients|split(',') %}
+                <li>{{ ingredient }}</li>
+            {% endfor %}
+        </ul>
+        <img src="{{ recipe.image }}" alt="{{ recipe.title }}" style="width: 300px; height: auto;">
+        <p>{{ recipe.instructions }}</p>
+    </div>
+{% endblock %} #}
+
+
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ recipe.title }}{% endblock %}
+
+{% block body %}
+
+<a href="{{ path('index') }}" class="btn btn-secondary mt-4 retour"><i class="bi bi-arrow-left-circle"></i> Retour à la liste des recettes</a>
+
+<div class="container my-5">
+    <h1 class="text-center mb-4 text-tt">{{ recipe.title }}</h1>
+    
+    <p class="text-center mb-4 text-muted">{{ recipe.recipe }}</p>
+
+    <div class="mb-3 row infos">
+    <div class="col-md-4 text-center">
+        <p><strong>Temps de cuisson</strong></p>
+        <span class="badge bg-danger">{{ recipe.getCookTime() }} minutes</span>
+    </div>
+    <div class="col-md-4 text-center">
+        <p><strong>Temps de préparation</strong></p>
+        <span class="badge bg-success">{{ recipe.getPrepTime() }} minutes</span>
+    </div>
+        <div class="col-md-4 text-center">
+        <p><strong>Difficulté</strong></p>
+        <span class="badge bg-warning">{{ recipe.getDifficulty() }}</span>
+    </div>
+</div>
+    
+    <h4 class="mb-3">Ingrédients</h4>
+    <ul class="list-group list-group-flush mb-5">
+        {% for ingredient in recipe.ingredients|split(',') %}
+            <li class="list-group-item">{{ ingredient }}</li>
+        {% endfor %}
+    </ul>
+
+    
+    <div class="text-center mb-4">
+        <img src="{{ recipe.image }}" alt="{{ recipe.title }}" class="img-fluid rounded shadow-lg" style="max-width: 500px; height: auto;">
+    </div>
+    
+    <h4 class="mb-3">Instructions</h4>
+    {# <p class="lead text-justify">{{ recipe.instructions }}</p> #}
+    <div class="steps">
+            {% set steps = recipe.instructions|split('.') %}
+            {% for step in steps %}
+                {% if step|trim %}
+                    <h5>Étape {{ loop.index }}</h5>
+                    <p class="lead text-justify">{{ step|trim }}.</p>
+                {% endif %}
+            {% endfor %}
+        </div>
+</div>
+
+{% endblock %}
+
+

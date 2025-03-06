@@ -1,0 +1,111 @@
+/* CSS show.html */
+.container {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 30px;
+}
+h1, h3 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.btn-secondary {
+    font-size: 16px;
+}
+.list-group-item {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+}
+.steps h5 {
+    margin-top: 20px;
+    color: palevioletred;
+}
+
+.steps p {
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+.infos {
+    border-radius: 8px;
+    padding: 15px;
+    background-color: white
+}
+.retour {
+    padding: 10px;
+    margin: 10px;
+}
+.text-tt {
+    color: palevioletred;
+}
+
+/* CSS index.html */
+.wrapper {
+    margin: 2em auto;
+    padding: 2em;
+    max-width: 1000px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+}
+
+h1 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #343a40;
+    text-align: center;
+}
+
+.recipe-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.recipe-item {
+    margin: 15px 0;
+    padding: 15px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-size: cover;
+    background-position: center;
+}
+
+.glassmorphism a {
+    text-decoration: none;
+    font-size: 1.3em;
+    color: white;
+    font-weight: bold;
+    transition: color 0.3s;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.glassmorphism  a:hover {
+    color: pink;
+}
+.glassmorphism {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px); 
+    border-radius: 4px;
+    padding: 10px;
+    text-shadow: none;
+    color: white;
+    max-width: fit-content;
+}
+.description {
+    color: white;
+}
+.btn-add {
+    background-color: pink;
+    color: white;
+    text-decoration: none;
+    padding: 10px 16px;
+    border-radius: 4px;
+}
+.btn-add:hover {
+    background-color: palevioletred;
+    color: white;
+}
+.btn-supp {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 12px;
+    height: fit-content; 
+    font-weight: bold;
+}

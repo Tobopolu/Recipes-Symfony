@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails de la recette{% endblock %}
+
+{% block body %}
+    <h1><strong>Titre - </strong>{{ recipe.title }}</h1>
+    <p><strong>Recette - </strong>{{ recipe.recipe }}</p>
+    <p><strong>Ingrédients - </strong>{{ recipe.ingredients }}</p>
+    <p><strong>Instructions - </strong>{{ recipe.instructions }}</p>
+
+    <div class="d-flex align-items-center justify-content-center gap-3">
+        <form method="post" action="{{ path('recipe_delete_confirm', {'id': recipe.id}) }}">
+            <button type="submit" class="btn btn-danger">Supprimer</button>
+        </form>
+
+        <a href="{{ path('index') }}" class="btn btn-secondary">Annuler</a>
+    </div>
+{% endblock %}

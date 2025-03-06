@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Create a Recipe{% endblock %}
+
+{% block body %}
+<a href="/" class="btn btn-secondary mt-4 retour">Retour à la liste des recettes</a>
+<div class="container mt-5">
+        <h1 class="mb-4">Create a new Recipe</h1>
+
+        <form method="POST" action="{{ path('recipe_new') }}" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" id="title" name="title" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="recipe" class="form-label">Recipe</label>
+                <textarea id="recipe" name="recipe" class="form-control" rows="4" required></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label for="ingredients" class="form-label">Ingredients (comma separated)</label>
+                <textarea id="ingredients" name="ingredients" class="form-control" rows="3" required></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label for="instructions" class="form-label">Instructions</label>
+                <textarea id="instructions" name="instructions" class="form-control" rows="5" required></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label for="prep_time" class="form-label">Preparation Time (minutes)</label>
+                <input type="number" id="prep_time" name="prep_time" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="cook_time" class="form-label">Cooking Time (minutes)</label>
+                <input type="number" id="cook_time" name="cook_time" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="difficulty" class="form-label">Difficulty</label>
+                <select id="difficulty" name="difficulty" class="form-select">
+                    <option value="Facile">Facile</option>
+                    <option value="Moyen">Moyen</option>
+                    <option value="Difficile">Difficile</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="image" class="form-label">Image URL</label>
+                <input type="text" id="image" name="image" class="form-control" placeholder="Enter image URL">
+            </div>
+
+            <button class="btn btn-success">Create Recipe</button>
+        </form>
+    </div>
+{% endblock %}

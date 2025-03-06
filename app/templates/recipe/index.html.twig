@@ -1,0 +1,63 @@
+{# {% extends 'base.html.twig' %}
+
+{% block title %}Quotes{% endblock %}
+
+{% block body %}
+    <style>
+        .wrapper {
+            margin: 1em auto;
+            width: 95%;
+        }
+    </style>
+
+    <div class="wrapper">
+        <h1>Recipes</h1>
+        <table class="table table-striped table-hover table-bordered">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Title</th>
+                <th scope="col">Recipe</th>
+                <th scope="col">Ingrédients</th>
+                <th scope="col">Image</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for recipe in recipes %}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    <td>{{ recipe.title }}</td>
+                    <td>{{ recipe.recipe }}</td>
+                    <td>{{ recipe.ingredients }}</td>
+                    <td><img src="{{ recipe.image }}" alt="{{ recipe.title }}" style="width: 100px;"></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %} #}
+
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Recipes{% endblock %}
+
+{% block body %}
+    <div class="wrapper">
+        <a href="/new" class="btn-add mb-4">Ajouter une recette</a>
+        <h1 class="text-uppercase">Les Recettes</h1>
+        <ul class="recipe-list">
+            {% for recipe in recipes %}
+                <li class="recipe-item" style="background-image: url('{{ recipe.image }}');">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="glassmorphism">
+                            <a href="{{ path('recipe.show', {'id': recipe.id}) }}" class="recipe-tt">{{ recipe.title }}</a>
+                            <p class="description">{{ recipe.recipe | slice(0, 100) ~ '...' }}</p>
+                        </div>
+                        <a href="{{ path('recipe_delete', {'id': recipe.id}) }}" class="btn btn-danger btn-supp">Supprimer</a>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
